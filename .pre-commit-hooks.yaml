@@ -1,0 +1,9 @@
+- id: python-import-style
+  name: Python import style
+  description: Enforce import style in package and tests folders.
+  entry: python -m python_import_style
+  language: python
+  minimum_pre_commit_version: "2.9.0"
+  additional_dependencies: ["python_import_style"]
+  pass_filenames: true
+  types: [python]
