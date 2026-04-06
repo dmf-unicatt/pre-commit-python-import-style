@@ -26,7 +26,7 @@ Example configuration:
 ```toml
 [[repos]]
 repo = "https://github.com/dmf-unicatt/pre-commit-python-import-style"
-rev = "<tag-or-sha>"
+rev = "e0ef04c465183e2ec79bf6030b0d7a2ae176a20b"
 hooks = [
     {
         id = "python-import-style",
