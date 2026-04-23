@@ -51,7 +51,7 @@ Example configuration:
 ```toml
 [[repos]]
 repo = "https://github.com/dmf-unicatt/pre-commit-python-import-style"
-rev = "e0ef04c465183e2ec79bf6030b0d7a2ae176a20b"
+rev = "31f5807d9d4915b53a44220fa82b8bed8b0e1f7c"
 hooks = [
     {
         id = "python-import-style",
