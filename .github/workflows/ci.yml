@@ -58,7 +58,7 @@ jobs:
           if chosen is None:
               print('No toml block found in README.md', file=sys.stderr)
               sys.exit(1)
-          content = chosen.replace('my_package', 'python_import_style')
+          content = chosen.replace('my_package', 'python_import_style').replace('subdirectory_with_python_code', '.')
           open('prek.toml', 'w', encoding='utf-8').write(content)
           print('Wrote prek.toml from README.toml block')
           PY
