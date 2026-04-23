@@ -18,29 +18,31 @@ def _rule_0(
     """Rule 0: Disallow double-leading-underscore names within the package."""
     errors: list[str] = []
 
-    for part in file_context.subpackage_parts:
-        if part.startswith("__"):
+    if file_context.in_package:
+        for part in file_context.subpackage_parts:
+            if part.startswith("__"):
+                python_import_style._append_rule_error._append_rule_error(
+                    errors,
+                    file_path,
+                    1,
+                    0,
+                    "private subpackage name '" + part + "' "
+                    "must have a single leading underscore",
+                )
+
+        if (
+            file_context.is_private_module
+            and file_context.module_name.startswith("__")
+        ):
             python_import_style._append_rule_error._append_rule_error(
                 errors,
                 file_path,
                 1,
                 0,
-                "private subpackage name '" + part + "' "
-                "must have a single leading underscore",
+                (
+                    "private module name '" + file_context.module_name + "' "
+                    "must have a single leading underscore"
+                ),
             )
-
-    if file_context.is_private_module and file_context.module_name.startswith(
-        "__"
-    ):
-        python_import_style._append_rule_error._append_rule_error(
-            errors,
-            file_path,
-            1,
-            0,
-            (
-                "private module name '" + file_context.module_name + "' "
-                "must have a single leading underscore"
-            ),
-        )
 
     return errors
