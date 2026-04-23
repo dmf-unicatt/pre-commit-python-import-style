@@ -4,3 +4,5 @@
 #
 # SPDX-License-Identifier: MIT
 """Public package interface for the import-style checker."""
+
+from python_import_style._check_all_rules import check_all_rules

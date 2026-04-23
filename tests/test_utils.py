@@ -6,17 +6,23 @@
 """Some utility functions for testing."""
 
 import pathlib
+import subprocess
 
 
 def _initialize_package_and_tests_dirs(
-    tmp_path: pathlib.Path,
+    project_root: pathlib.Path,
 ) -> tuple[str, pathlib.Path, pathlib.Path]:
     """Initialize the package and tests directories for testing."""
     package_name = "my_package"
-    package_root = tmp_path / package_name
+    package_root = project_root / package_name
     package_root.mkdir()
-    tests_root = tmp_path / "tests"
+    tests_root = project_root / "tests"
     tests_root.mkdir()
+    subprocess.run(
+        ["git", "init"],
+        cwd=str(project_root),
+        check=True,
+    )
     return package_name, package_root, tests_root
 
 
