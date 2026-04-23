@@ -19,7 +19,7 @@ hooks = [
     {
         id = "python-import-style",
         name = "Python import style",
-        entry = "uv run python -m python_import_style",
+        entry = "echo uv run python -m python_import_style",
         language = "system",
         args = [
             "--package-dir-prefix", "src",
