@@ -10,13 +10,12 @@ import subprocess
 
 
 def _exclude_ignore_paths(
-    project_root: pathlib.Path, paths: list[pathlib.Path]
+    project_root: pathlib.Path, file_paths: list[pathlib.Path]
 ) -> list[pathlib.Path]:
-    """Preprocess `paths` to exclude files ignored by git."""
-    assert all(p.is_absolute() for p in paths)
-    rel_paths = [p.relative_to(project_root) for p in paths]
+    """Preprocess `file_paths` to exclude files ignored by git."""
+    assert all(p.is_absolute() for p in file_paths)
+    rel_paths = [p.relative_to(project_root) for p in file_paths]
     input_bytes = "\0".join(str(p) for p in rel_paths).encode("utf-8")
-    print(rel_paths, input_bytes)
     proc = subprocess.run(
         ["git", "check-ignore", "-z", "--stdin"],
         input=input_bytes,
