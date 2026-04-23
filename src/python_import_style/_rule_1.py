@@ -30,7 +30,6 @@ def _rule_1(
             if file_context.in_package and node.level > 0:
                 # Relative imports are handled by Rule 3; skip them to avoid
                 # duplicate reports.
-                assert module is None
                 continue
             if not file_context.is_init:
                 python_import_style._append_rule_error._append_rule_error(
