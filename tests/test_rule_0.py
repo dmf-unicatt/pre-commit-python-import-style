@@ -44,7 +44,12 @@ def _run_rule_0_for_file(
 
 
 @pytest.mark.parametrize(
-    "run_rule", [_run_rule_0_for_file, python_import_style.check_all_rules]
+    "run_rule",
+    [
+        _run_rule_0_for_file,
+        python_import_style.check_all_rules,
+        test_utils._run_cli_and_get_errors,
+    ],
 )
 def test_rule_0_forbids_double_leading_underscore_in_module(
     tmp_path: pathlib.Path,
@@ -65,7 +70,12 @@ def test_rule_0_forbids_double_leading_underscore_in_module(
 
 
 @pytest.mark.parametrize(
-    "run_rule", [_run_rule_0_for_file, python_import_style.check_all_rules]
+    "run_rule",
+    [
+        _run_rule_0_for_file,
+        python_import_style.check_all_rules,
+        test_utils._run_cli_and_get_errors,
+    ],
 )
 def test_rule_0_forbids_double_leading_underscore_in_subpackage(
     tmp_path: pathlib.Path,
