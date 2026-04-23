@@ -13,6 +13,7 @@ import python_import_style._iter_project_python_files
 import python_import_style._prepare_file_context
 import python_import_style._rule_0
 import python_import_style._rule_1
+import python_import_style._rule_2
 
 if typing.TYPE_CHECKING:
     import ast
@@ -79,5 +80,7 @@ def check_all_rules(
                 package_name, file_path, file_context, tree
             )
         )
+
+        errors.extend(python_import_style._rule_2._rule_2(file_path, tree))
 
     return errors
